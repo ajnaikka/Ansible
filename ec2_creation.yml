@@ -1,0 +1,17 @@
+# with role attached
+- hosts: localhost
+  remote_user: ec2-user
+  become: yes
+  tasks: 
+   
+   - name: ec2
+     amazon.aws.ec2:
+       Name: vicky
+    #key_name: mykey
+       instance_type: t2.micro
+       image: ami-0e6329e222e662a52
+    #wait: yes
+    #group: webserver
+       count: 1
+    #vpc_subnet_id: subnet-29e63245
+    #assign_public_ip: yes

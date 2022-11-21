@@ -1,0 +1,27 @@
+# without role attachment (access nd secret key)
+- hosts: localhost
+  remote_user: ec2-user
+  become: yes
+  tasks:
+     
+   - name: launching AWS instance using Ansible
+     tags: create ec2
+     ec2:
+      name: ajnaikka
+      instance_type: t2.micro
+      image: ami-0e6329e222e662a52
+      region: ap-south-1
+      count: 1
+      aws_access_key: AKIAWWDEHFDIIFOP7HUX
+      aws_secret_key: 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
+      instance_tags:
+       name: hello
+
+
+
+
+
+
+
+
+

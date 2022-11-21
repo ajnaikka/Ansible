@@ -1,0 +1,16 @@
+- hosts: all
+  remote_user: ec2-user
+  become: yes
+  tasks: 
+
+   - name: multiple package installation
+     yum:
+      name: "{{ item }}"
+      state: present
+    
+     loop:
+      - mysql
+      - php
+      - git
+      - wget
+       

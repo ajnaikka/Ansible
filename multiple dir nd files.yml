@@ -1,0 +1,33 @@
+- hosts: all
+  remote_user: ec2-user
+  become: yes
+  tasks:
+     
+   - name: create dir
+     file:
+      path: "/tmp/{{item}}"
+      state: directory
+
+     loop:
+     - test1
+     - test2
+     - test3
+
+   - name: create file 
+     file:
+      path: "{{item}}"
+      state: touch
+
+     loop: 
+     - /tmp/test1/file1
+     - /tmp/test2/file2
+     - /tmp/test3/file3
+     
+
+
+
+
+
+
+
+
